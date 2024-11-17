@@ -1,21 +1,40 @@
 h1{
     position: absolute;
-    top: 0;
+    top: 10px;
     width: 100%;
     text-align: center;
+    font-size: 60px;
+}
+
+h2{
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: Play, Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center; 
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #47a4d2;
+    padding: 20px;
+}
+
+img[src="rocket1.png"] {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .background {
     flex-direction: column;
+    display: flex;
 }
 
 
@@ -29,6 +48,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px; 
 }
 
 
@@ -39,5 +59,3 @@ input[type="color"] {
     height: 30px;
     width: 50px;
 }
-
-

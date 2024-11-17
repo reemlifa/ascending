@@ -1,36 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>p5.js Color Customization</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrance Screen</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #201658;
+      color: #fff;
+      overflow: hidden; /* Ensure stars don't create scrollbars */
+      position: relative;
+    }
+
+    /* Starry background */
+    #star-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Place stars behind content */
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: moveStar linear infinite;
+    }
+
+    @keyframes moveStar {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(100vh);
+        opacity: 0.1;
+      }
+    }
+
+  .typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: pre; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+    /* Bounce-in animation for the image (from bottom-left to top-right) */
+    .bounce-in {
+      animation: bounceIn 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: translate(0, 100vh); /* Start from bottom-left */
+        opacity: 0;
+      }
+      60% {
+        transform: translate(40vw, -20vh); /* Move up and right */
+        opacity: 1;
+      }
+      80% {
+        transform: translate(25vw, -10vh); /* Bounce back slightly */
+      }
+      100% {
+        transform: translate(30vw, -5vh); /* Final top-right position */
+      }
+    }
+
+    .enter-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #fff;
+      color: #222;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .enter-button:hover {
+      background-color: #ddd;
+      transform: scale(1.1);
+    }
+
+    /* Example for the image you want to bounce in */
+    #slideImage {
+      display: none; /* Hidden initially */
+      width: 300px; /* Set image size */
+      margin-top: 30px;
+      position: absolute; /* Absolute positioning for smooth transition */
+      z-index: 2; /* Ensure it stays above text */
+    }
+  </style>
 </head>
-<h1>We Survive</h1>
 <body>
-    <div class = "background">
-    <div class = "sphere">
-    <label for="sphereColor">Choose Sphere Color:</label>
-    <input type="color" id="sphereColor" value="#ffffff">
-      </div>
-   
-<div class = "slider1">
-    <label for="myRange">Water:</label>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-</div>
- <div class = "slider2">
-    <label for="myRange">Oxygen:</label>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-</div>
-    <div class = "slider3">
-    <label for="myRange">Food:</label>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-    </div>
-      </div>
-      </div>
 
+  <!-- Starry Background Container -->
+  <div id="star-container"></div>
 
+  <div class="typewriter">
+    <h1>1,234 Flerken creatures have been knocked</h1>
+    <h1>off Earth-58163 due to unsafe conditions. </h1>
+    <h1>They need to find a new Earth that can</h1>
+    <h1>sustain their masses of Fancy Feast.</h1>
+  </div>
+  <br>
+  <br><div style="display: flex; flex-direction: row; align-items: center; margin-top: 20px;">
+    <button class="enter-button" onclick="enterSite()">Will you help save them?</button>
+  </div>
+
+ 
+  <!-- The image to bounce in -->
+  <!-- <img id="slideImage" src="flerken.webp" alt="Flerken Image" /> -->
+
+  <script>
+    function enterSite() {
+      window.location.href = 'main.html';
+    }
+
+    // Generate stars
+    const starContainer = document.getElementById('star-container');
+
+    function createStars() {
+      const numStars = 500; // Number of stars
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+
+        // Randomize initial position and animation properties
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.animationDuration = Math.random() * 5 + 3 + 's';
+        star.style.animationDelay = Math.random() * 5 + 's';
+
+        starContainer.appendChild(star);
+      }
+    }
+
+    createStars();
+
+    // Function to start bouncing in the image after the typing animation is done
+    window.addEventListener('load', () => {
+      const slideImage = document.getElementById('slideImage');
+
+      // Wait until the typing animation is done (5s)
+      setTimeout(() => {
+        slideImage.style.display = 'block';  // Make image visible
+        slideImage.classList.add('bounce-in'); // Add the bounce-in class to trigger animation
+      }, 5000); // 5000ms = 5 seconds (same as typing duration)
+    });
+  </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
-<script src="sketch.js" defer></script>
 </html>

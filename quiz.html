@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <h3>Question 1: What is the capital of France?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> A. Berlin</label>
+                    <label><input type="radio" name="q1" value="b"> B. Madrid</label>
+                    <label><input type="radio" name="q1" value="c"> C. Paris</label>
+                    <label><input type="radio" name="q1" value="d"> D. Rome</label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>Question 2: Which planet is known as the Red Planet?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> A. Earth</label>
+                    <label><input type="radio" name="q2" value="b"> B. Mars</label>
+                    <label><input type="radio" name="q2" value="c"> C. Jupiter</label>
+                    <label><input type="radio" name="q2" value="d"> D. Saturn</label>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Quiz submitted!');
+        });
+    </script>
+</body>
+</html>
